@@ -18,9 +18,24 @@ public class Bank {
             System.out.println("Invalid request, withdrawal amount must equal above £0");
         } else {
             balance -= amount;
-            System.out.println("Withdrawal of £" + amount + "successful, new balance: £" + balance);
+            lastTransaction = -amount;
+            System.out.println("Withdrawal of £" + amount + " successful, new balance: £" + balance);
         }
     }
+
+    public void deposit(double amount) {
+        if (amount <= 0) {
+            System.out.println("Invalid request, deposit amount must equal above £0");
+        } else {
+            balance += amount;
+            lastTransaction = amount;
+            System.out.println("Deposit of £" + amount + " successful, new balance: £" + balance);
+        }
+    }
+
+   
+
+    
 
 
 
