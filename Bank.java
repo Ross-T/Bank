@@ -12,6 +12,7 @@ public class Bank {
         accNo = accountNo;
     }
 
+    //Method for withdrawals
     public void withdraw(double amount) {
         if (amount > balance) {
             System.out.println("Invalid request, withdrawal amount exceeds available balance.");
@@ -24,6 +25,7 @@ public class Bank {
         }
     }
 
+    //Method for deposits
     public void deposit(double amount) {
         if (amount <= 0) {
             System.out.println("Invalid request, deposit amount must equal above £0");
@@ -34,6 +36,7 @@ public class Bank {
         }
     }
 
+    //Method to display the most recent transaction
     public void mostRecentTransaction() {
         if (lastTransaction < 0) {
             System.out.println("Your most recent transaction:");
@@ -48,6 +51,7 @@ public class Bank {
         }
     }
 
+    //Method for the main menu feature
     public void displayMenu() {
         char option;
         char chosenOption;
@@ -63,7 +67,6 @@ public class Bank {
         System.out.println("C - Check your balance");
         System.out.println("D - View your most recent transaction");
         System.out.println("E - Exit");
-
         System.out.println();
         System.out.println();
         System.out.println("Please enter an option:");
@@ -74,6 +77,7 @@ public class Bank {
         System.out.println();
 
         switch(option) {
+            //Case 'A' allows the user to withdraw money using the 'withdraw' method
             case 'A':
                 System.out.println("Please enter amount to withdraw: ");
                 amount = fetch.nextDouble();
@@ -102,6 +106,7 @@ public class Bank {
                 }
                 break;
 
+            //Case 'B' allows the user to deposit money using the 'deposit' method
             case 'B':
                 System.out.println("Please enter amount to deposit: ");
                 amount = fetch.nextDouble();
@@ -130,6 +135,7 @@ public class Bank {
                 }
                 break;
 
+            //Case 'C' displays the user's current balance
             case 'C':
                 System.out.println();
                 System.out.println();
@@ -157,6 +163,7 @@ public class Bank {
                 }
                 break;
 
+            //Case 'D' displays the user's most recent transaction using the 'mostRecentTransaction' method
             case 'D':
                 System.out.println();
                 System.out.println("====================================");
@@ -183,12 +190,14 @@ public class Bank {
                 }
                 break;
 
+            //Case 'E' exits the program
             case 'E':
                 System.out.println("====================================");
                 System.out.println("Thank you for banking with us.");
                 System.out.println("====================================");
                 break;
             
+            //Default tells the user that they have entered an invalid option, and returns them to the main menu
             default:
                 System.out.println("===============================================");
                 System.out.println("Error. Invalid option. Returning to main menu.");
