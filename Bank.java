@@ -33,6 +33,20 @@ public class Bank {
         }
     }
 
+    public void mostRecentTransaction() {
+        if (lastTransaction < 0) {
+            System.out.println("====Your most recent transaction====");
+            System.out.println();
+            System.out.println("Withdrawn: £" + lastTransaction);
+        } else if (lastTransaction > 0) {
+            System.out.println("====Your most recent transaction====");
+            System.out.println();
+            System.out.println("Deposited: £" + lastTransaction);
+        } else {
+            System.out.println("No recent transactions to display.");
+        }
+    }
+
    
 
     
