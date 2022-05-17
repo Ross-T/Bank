@@ -2,11 +2,12 @@ import java.util.Scanner;
 
 public class Bank {
     String name;
-    String accNo;
+    int accNo;
     double balance;
     double lastTransaction;
+    double amount;
 
-    public void Account(String customerName, String accountNo) {
+    public Bank(String customerName, int accountNo) {
         name = customerName;
         accNo = accountNo;
     }
@@ -47,17 +48,75 @@ public class Bank {
         }
     }
 
-   
+    public void displayMenu() {
+        char option;
+        char chosenOption;
+        Scanner fetch = new Scanner(System.in);
+        System.out.println("Welcome, " + name + "!");
+        System.out.println("Account Number: " + accNo);
+        System.out.println();
+        System.out.println("What would you like to do today?");
+        System.out.println();
+        System.out.println("Options:");
+        System.out.println("A - Make a withdrawal");
+        System.out.println("B - Make a deposit");
+        System.out.println("C - Check your balance");
+        System.out.println("D - View your most recent transaction");
+        System.out.println("E - Exit");
 
-    
+        System.out.println();
+        System.out.println();
+        System.out.println("Please enter an option:");
+        chosenOption = fetch.next().charAt(0);
+        option = Character.toUpperCase(chosenOption);
+        System.out.println();
 
+        switch(option) {
+            case 'A':
+                System.out.println("Please enter amount to withdraw: ");
+                amount = fetch.nextDouble();
+                System.out.println();
+                withdraw(amount);
+                System.out.println();
+                break;
 
+            case 'B':
+                System.out.println("Please enter amount to deposit: ");
+                amount = fetch.nextDouble();
+                System.out.println();
+                deposit(amount);
+                System.out.println();
+                break;
 
+            case 'C':
+                System.out.println("====================================");
+                System.out.println("Your total balance is: " + balance);
+                System.out.println("====================================");
+                break;
 
+            case 'D':
+                System.out.println("====================================");
+                mostRecentTransaction();
+                System.out.println("====================================");
+                break;
 
+            case 'E':
+                System.out.println("====================================");
+                System.out.println("Thank you for banking with us.");
+                System.out.println("====================================");
 
+        }
 
-    public static void main(String[] args) {
         
     }
+
+    public static void main(String[] args) {
+        Bank ross = new Bank("Ross Turpin", 385915);
+        ross.displayMenu();
+    }
 }
+
+
+
+ 
+
